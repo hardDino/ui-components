@@ -1,13 +1,21 @@
-.details {
-  width: 400px;
-  margin: 0 0 10px 0;
+.custom {
+  &__list {
+    list-style: none;
+    width: 400px;
+  }
+
+  &__item {
+    margin: 0 0 10px 0;
+  }
   
   &__control {
     @include flex-all-sb;
 
-    list-style: none;
     padding: 20px;
     border: 1px solid crimson;
+    width: 100%;
+    background-color: transparent;
+    cursor: pointer;
 
     // &::webkit-details-marker {
     //   display: none;
@@ -15,7 +23,8 @@
   }
 
   &__title {
-    margin: 0;
+    font-weight: bold;
+    font-size: 1.17em;
   }
 
   &__icon {
@@ -44,16 +53,31 @@
   }
 
   &__content {
-    padding: 20px;
+    padding: 0 20px;
     border: 1px solid crimson;
     border-top: 1px solid transparent;
-  }
-
-  &[open] {
-    .details__icon {
-      transform: rotate(45deg);
-    }
+    opacity: 0;
+    overflow: hidden;
+    max-height: 0;
+    will-change: max-height;
+    transition: all .5s ease-in-out;
+    box-sizing: content-box;
   }
 }
-    
-    
+
+.custom__icon {
+  transition: transform .5s ease-in-out;
+}
+
+.open {
+  .custom__icon {
+    transform: rotate(45deg);
+  }
+}
+
+.open {
+  .custom__content {
+    opacity: 1;
+    padding: 20px;
+  }
+}

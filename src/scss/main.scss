@@ -6,7 +6,9 @@
 
 // подключения компонентов страницы
 @import "./components/header";
-@import "./components/details";
+// @import "./components/akkordeon/details";
+// @import "./components/akkordeon/custom";
+@import "./components/akkordeon/custom-animation";
 
 // тестовые стили, удалите их
 .page__body {
